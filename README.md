@@ -222,7 +222,58 @@ each network would have 30 useable address well with the range for our network
 
 ### Reverse Subnetting?
 
-my ip address: 192.168.1.74
+- Router
+  - IP Address: 172.17.0.1
+- Beatrice
+  - IP Address: 172.17.16.255
+  - Subnet Mask: 255.255.240.0
+- Bernard Hackwell
+  - IP Address: 172.17.12.101
+  - Subnet Mask: 255.255.240.0
+
+Something is wrong Beatrice's IP address and to find out why we need to do Reverse Subnetting.
+
+Luckly we are given the Subnet Mask so we dont need to find it
+
+Not we need to convert the subnet mask to binary, and when we do that we get:
+
+11111111.11111111.11110000.00000000
+
+now that we have it in binary we can find the subnet masks insider notation which is /20 for this subnet
+
+we got this by counting the amount of 1 bits in the subnet
+
+we also use the last network bit to find the increment and in this case it's 16
+
+now we can create our networks
+
+- 172.17.0.0 - 172.17.15.255
+- 172.17.16.0 - 172.17.31.255
+- 172.17.32.0 - 172.17.47.255
+- 172.17.48.0
+- 172.17.64.0
+
+We know know that Beatrices computer is in this network 172.17.16.0 - 172.17.31.255
+
+#### Another Example
+
+IP Address: 48.25.24.71 /21
+
+- Network Address?
+- Broadcasting Address?
+- Router?
+
+Subnet Mask (binary): 11111111.11111111.11111000.00000000 - this was found because of the insider notation of the ip address provided and we know the increment too which is 8<br>
+Subnet Mask (decimal): 255.255.248.0
+
+1. 48.25.0.0 - 48.25.7.255
+2. 48.25.8.0 - 48.25.15.255
+3. 48.25.16.0 - 48.25.24.255
+
+- Network Address = 48.25.8.0
+- Broadcasting Address = 48.25.15.255
+- Router = 48.25.8.1
+
 
 
 
